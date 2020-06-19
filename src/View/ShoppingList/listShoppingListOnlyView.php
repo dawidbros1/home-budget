@@ -21,23 +21,6 @@
         </thead>
         <tbody id="shopppingList">
 
-            <?php
-            $shoppingList = \App\Repository\ShoppingListRepository::getAllShoppingListForCurrentUserWithFullDate($today);
-
-            if ($shoppingList) {
-                foreach ($shoppingList as $key => $singleShoppingList) {
-                    echo '
-                        <tr>
-                            <th scope="row">' . ($key + 1) . '</th>
-                            <td>' . \App\Repository\ProductRepository::getProductById($singleShoppingList->getProduct_id())[0]->getName() . '</td>
-                            <td>' . $singleShoppingList->getAmount() . '</td>
-                            <td>' . $singleShoppingList->getPrice() . '</td>
-                        </tr>
-                    ';
-                }
-            }
-
-            ?>
         </tbody>
     </table>
 

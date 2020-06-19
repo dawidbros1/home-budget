@@ -6,7 +6,6 @@ datePicker.addEventListener('change', function () {
     getShoppingListWithFullDate(date);
 })
 
-
 function getShoppingListWithFullDate(date) {
     $.ajax({
         url: "./ajax/viewShoppingListWithFullDate.php",
@@ -21,6 +20,8 @@ function getShoppingListWithFullDate(date) {
         }
     });
 }
+
+getShoppingListWithFullDate(date);
 
 window.addEventListener('keydown', (e) => {
     switch (e.keyCode) {

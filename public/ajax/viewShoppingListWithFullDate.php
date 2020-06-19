@@ -8,17 +8,27 @@ $date = $_REQUEST['date'];
 
 $shoppingList = \App\Repository\ShoppingListRepository::getAllShoppingListForCurrentUserWithFullDate($date);
 
-if ($shoppingList != NULL && $shoppingList != false) {
+$sum = 0;
+
+if ($shoppingList) {
     foreach ($shoppingList as $key => $singleShoppingList) {
+
+        $price = $singleShoppingList->getPrice() * $singleShoppingList->getAmount() - $singleShoppingList->getDiscount();
+        $sum += $price;
         echo '
             <tr>
                 <th scope="row">' . ($key + 1) . '</th>
                 <td>' . \App\Repository\ProductRepository::getProductById($singleShoppingList->getProduct_id())[0]->getName() . '</td>
                 <td>' . $singleShoppingList->getAmount() . '</td>
-                <td>' . $singleShoppingList->getPrice() . '</td>
+                <td>' .  number_format((float) $price, 2, '.', '') . ' zł</td>
             </tr>
         ';
     }
 
-    echo $date;
+    echo '
+        <tr>
+            <td colspan="3"></td>
+            <td class = "text-right">Całkowity koszt: ' . number_format((float) $sum, 2, '.', '') . ' zł</td>
+        </tr>
+        ';
 }
