@@ -1,0 +1,10 @@
+#date{
+    position: absolute;
+    right: 15px;
+    top: -40px
+}
+
+input[type="checkbox"]{
+    width: 28px;
+    height: 28px;
+  }

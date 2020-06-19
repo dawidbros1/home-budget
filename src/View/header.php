@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
     <?php if (isset($_SESSION['css'])) {
         echo '<link rel="stylesheet"href="styles/' . $_SESSION['css'] . '.css">';
@@ -12,8 +15,7 @@
     } ?>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="styles/custom.css">
+    <link rel="stylesheet" href="styles/global.css">
 
     <title>
         <?php
@@ -60,7 +62,8 @@
                                     <a class="nav-link dropdown-toggle" href="#" class="navbardrop" data-toggle="dropdown">Zakupy</a>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="index.php?action=addShoppingList">Dodaj zakup</a>
-                                        <a class="dropdown-item" href="index.php?action=listShoppingList">Lista zakupów</a>
+                                        <a class="dropdown-item" href="index.php?action=listShoppingList">Lista zakupów (edycja)</a>
+                                        <a class="dropdown-item" href="index.php?action=listShoppingListOnlyView">Lista zakupów (widok)</a>
                                     </div>
                                 </li>
 

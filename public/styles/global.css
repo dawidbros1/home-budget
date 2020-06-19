@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: lightgoldenrodyellow;
+}
+
+
+div.container{
+    background-color: white;
+    padding: 0;
+}
+  
+  h1{
+    text-align: center;
+  }
+  
+  .red{
+    color: red;
+  }
+  
+  .none{
+    display: none;
+  }
+  
+  .item{
+    display: block; 
+  }
+  
+  .error{
+    color: red;
+    margin-top: -15px;
+    font-size: 14px;
+  }
+  
+  .green{
+    color: green;
+  }
+  
+  .bold{
+    font-weight: bold;
+  }
+
+  .relative{
+    position: relative;
+  }
+  
+  .flex{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .container{
+    position: relative;
+  }
+
+  hr {
+    width: 100%; 
+    color: black; 
+    height: 1px; 
+    background-color:black;
+  }

@@ -1,0 +1,31 @@
+#addPosition{
+    background-color: lightgreen;
+    width: 200px;
+    text-align: center;
+    display: block;
+    margin: 0 auto 0;
+    padding: 5px;
+    border: 1px solid black;
+  }
+  
+  #addPosition:hover{
+    cursor: pointer;
+  }
+  
+  #date{
+    position: absolute;
+    right: 25px;
+    top: -40px;
+    width: 140px;
+  }
+  
+  #button{
+    height: 25px;
+    margin-left: 15px;
+    font-size: 14px;
+  }
+
+  #button{
+    display: block;
+    height: 40px;
+  }

@@ -1,0 +1,21 @@
+table{
+    width: 95% !important;
+    margin: 0 auto 0;
+}
+
+#dataBoxForm{
+    position: absolute;
+    right: 15px;
+    top: 90px;
+  }
+
+  #month{
+    margin-right: 5px;
+  }
+  
+  #button{
+    height: 25px;
+    margin-left: 15px;
+    font-size: 14px;
+  }
+  

@@ -79,6 +79,11 @@ if (isset($_REQUEST['action'])) {
                 break;
             }
 
+        case 'listShoppingListOnlyView': {
+                \App\Controller\ShoppingListController::listShoppingListOnlyView();
+                break;
+            }
+
             // ==== Podsumowanie ==== //
 
         case 'summary': {

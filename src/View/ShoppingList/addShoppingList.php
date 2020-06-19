@@ -1,5 +1,7 @@
 <?php $_SESSION['title'] = "Dodaj zakupy"; ?>
 
+<?php $_SESSION['css'] =  "addShoppingList"; ?>
+
 <?php require_once __DIR__ . './../header.php'; ?>
 
 <h1>Dodaj zakup</h1>

@@ -7,6 +7,7 @@ $_SESSION['title'] = "Podsumowanie"; ?>
 <?php require_once __DIR__ . './../header.php'; ?>
 
 <?php $_SESSION['js'] =  ["summaryFilter"]; ?>
+<?php $_SESSION['css'] =  "summary"; ?>
 
 <h1>Podsumowanie</h1>
 

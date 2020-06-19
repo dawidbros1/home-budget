@@ -182,6 +182,26 @@ class ShoppingListRepository extends \App\Model\Model
         }
     }
 
+    public function getAllShoppingListForCurrentUserWithFullDate($date)
+    {
+        global $currentUser;
+        $db = self::getConnection();
+        $sql = "SELECT * FROM shopping_list WHERE user_id = :user_id AND date = :date";
+        $statement = $db->prepare($sql);
+        $statement->bindValue(':user_id', $currentUser->getId(), \PDO::PARAM_INT);
+        $statement->bindValue(':date', $date, \PDO::PARAM_STR);
+        $statement->execute();
+        $result = $statement->fetchAll();
+
+        $products = self::createObjectByData($result);
+
+        if ($products) {
+            return $products;
+        } else {
+            return false;
+        }
+    }
+
     public function save($shoppingList)
     {
         $db = self::getConnection();

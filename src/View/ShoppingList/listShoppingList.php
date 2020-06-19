@@ -1,5 +1,7 @@
 <?php $_SESSION['title'] = "Lista produkt"; ?>
 
+<?php $_SESSION['css'] =  "listShopping" ?>
+
 <?php require_once __DIR__ . './../header.php'; ?>
 
 <h1>Lista zakupów</h1>

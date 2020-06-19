@@ -110,4 +110,13 @@ class ShoppingListController
         }
         require_once __DIR__ . '/../View/ShoppingList/listShoppingList.php';
     }
+
+    public static function listShoppingListOnlyView()
+    {
+        if (!\App\Repository\UserRepository::checkIfUserIsLoggedIn()) {
+            header('Location: ./index.php?action=start');
+            exit();
+        }
+        require_once __DIR__ . '/../View/ShoppingList/listShoppingListOnlyView.php';
+    }
 }
