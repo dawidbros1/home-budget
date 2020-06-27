@@ -1,41 +1,62 @@
 var datePicker = document.getElementById('date');
-var dataBox = document.getElementsByClassName('dataBox');
-
-// Init 
-
-for (var i = 0; i < dataBox.length; i++) {
-    let dataBoxTime = dataBox[i].getElementsByClassName('time')[0];
-
-    if (datePicker.value == "") {
-        dataBox[i].style.display = "flex";
-    }
-    else {
-        if (datePicker.value != dataBoxTime.value) {
-            dataBox[i].style.display = "none";
-        }
-        else {
-            dataBox[i].style.display = "flex";
-        }
-    }
-}
-
-// END
+var date = datePicker.value;
 
 datePicker.addEventListener('change', function () {
-    for (var i = 0; i < dataBox.length; i++) {
-        let dataBoxTime = dataBox[i].getElementsByClassName('time')[0];
-
-        if (datePicker.value == "") {
-            dataBox[i].style.display = "flex";
-        }
-        else {
-            if (datePicker.value != dataBoxTime.value) {
-                dataBox[i].style.display = "none";
-            }
-            else {
-                dataBox[i].style.display = "flex";
-            }
-        }
-    }
+    date = datePicker.value;
+    console.log(date);
+    getShoppingListWithFullDate(date);
 })
 
+function getShoppingListWithFullDate(date) {
+    $.ajax({
+        url: "./ajax/editShoppingListWithFullDate.php",
+        cache: false,
+
+        data: {
+            date: date
+        },
+
+        success: function (data) {
+            $('#shoppingList').html(data);
+            checkEditListShoppingList();
+        }
+    });
+}
+
+getShoppingListWithFullDate(date);
+
+window.addEventListener('keydown', (e) => {
+    switch (e.keyCode) {
+        case 37: {
+            var d = new Date(date);
+            d.setDate(d.getDate() - 1);
+            date = formatDate(d);
+            datePicker.value = date;
+            getShoppingListWithFullDate(date);
+            break;
+        }
+        case 39: {
+            var d = new Date(date);
+            d.setDate(d.getDate() + 1);
+            date = formatDate(d);
+            datePicker.value = date;
+            getShoppingListWithFullDate(date);
+            break;
+        }
+    }
+
+})
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}

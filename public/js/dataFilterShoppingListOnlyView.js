@@ -16,7 +16,7 @@ function getShoppingListWithFullDate(date) {
         },
 
         success: function (data) {
-            $('#shopppingList').html(data);
+            $('#shoppingList').html(data);
         }
     });
 }

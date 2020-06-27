@@ -4,8 +4,6 @@ require_once __DIR__ . './dataInit.php';
 
 $date = $_REQUEST['date'];
 
-// TODO Sprawdzenie czy format daty jest ok
-
 $shoppingList = \App\Repository\ShoppingListRepository::getAllShoppingListForCurrentUserWithFullDate($date);
 
 $sum = 0;

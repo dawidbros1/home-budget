@@ -6,10 +6,7 @@
 
 <h1>Lista zakupów</h1>
 
-<div id="shoppingList">
-
-    <?php $today = date_format(new DateTime(), 'Y-m-d'); ?>
-
+<div>
     <table class="table">
         <thead>
             <tr>
@@ -19,13 +16,14 @@
                 <th scope="col">Cena</th>
             </tr>
         </thead>
-        <tbody id="shopppingList">
+        <tbody id="shoppingList">
 
         </tbody>
     </table>
-
-    <input type="date" id="date" value="<?php echo $today ?>">
 </div>
+
+<?php $today = date_format(new DateTime(), 'Y-m-d'); ?>
+<input type="date" id="date" value="<?php echo $today ?>">
 
 <?php $_SESSION['js'] =  ["dataFilterShoppingListOnlyView"]; ?>
 
