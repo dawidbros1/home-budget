@@ -19,7 +19,7 @@ if ($products) {
             <div class="form-group col-md-5">
                 <label for="exampleInputEmail1">Nazwa produktu</label>
                 <input type="text" class="form-control editProductName" name="name[]" value = "' . $product->getName() . '">
-                <input type = "hidden" name = "id[]" value = ' . $product->getId() . ' >
+                <input type = "hidden" class = "id" name = "id[]" value = ' . $product->getId() . ' >
             </div>
 
             <div class="form-group col-md-5">
@@ -41,11 +41,15 @@ if ($products) {
     }
 
     echo '</div>';
-    echo ' <button type="submit" class="btn btn-primary" id = "editProductListButton">Edytuj produkty</button>';
+    echo ' <button type="button" class="btn btn-primary" id = "editProductListButton">Edytuj produkty</button>';
     echo '</form>';
 }
 
 ?>
+
+<form action="./index.php?action=editProduct" method="post" id="jsForm" style="display:none">
+    <input type="submit" style="display: none" id="formButton">
+</form>
 
 <?php
 

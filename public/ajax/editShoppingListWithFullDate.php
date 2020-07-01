@@ -71,3 +71,4 @@ if ($shoppingList) {
     echo '<hr>';
     echo '</div>';
 }
+
