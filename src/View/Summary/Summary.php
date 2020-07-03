@@ -1,7 +1,5 @@
 <?php
 
-use App\Repository\ShoppingListRepository;
-
 $_SESSION['title'] = "Podsumowanie"; ?>
 
 <?php require_once __DIR__ . './../header.php'; ?>
@@ -53,7 +51,12 @@ $_SESSION['title'] = "Podsumowanie"; ?>
                         ) {
                             $shopList = \App\Repository\ShoppingListRepository::getAllShoppingListByProductIdWithDate($product->getId(), $_REQUEST['year'], $_REQUEST['month']);
                         } else {
-                            $shopList = \App\Repository\ShoppingListRepository::getAllShoppingListByProductId($product->getId());
+                            // $shopList = \App\Repository\ShoppingListRepository::getAllShoppingListByProductId($product->getId());
+
+                            $month = date('m');
+                            $year = date("Y");
+
+                            $shopList = \App\Repository\ShoppingListRepository::getAllShoppingListByProductIdWithDate($product->getId(), $year, $month);
                         }
 
                         if ($shopList) {
@@ -122,7 +125,12 @@ $_SESSION['title'] = "Podsumowanie"; ?>
                 function selectMonth($value)
                 {
                     global $month;
-                    if ($value == $month) {
+
+                    if (isset($_REQUEST['month']) && !empty($_REQUEST['month'])) {
+                        if ($value == $_REQUEST['month']) {
+                            echo 'selected';
+                        }
+                    } else if ($value == $month) {
                         echo 'selected';
                     }
                 }
