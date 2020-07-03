@@ -50,7 +50,7 @@ function sendProductsList() {
         html = '';
         html += ' <input type="text" name="name[]" value = "' + name[i].value + '">';
         html += ' <input type="number" name="price[]" step = "0.01"  value = "' + price[i].value + '">';
-        html += ' <input type = "number" name = "category_id" value = "' + category_id[i].value + '">';
+        html += ' <input type="number" name = "category_id[]" value = "' + category_id[i].value + '">';
         html += ' <input type="hidden" name="id[]" value = "' + id[i].value + '">';
 
         inputsForm.innerHTML += html;

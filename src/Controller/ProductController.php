@@ -53,7 +53,6 @@ class ProductController
             $category_id = $_REQUEST['category_id'];
             $price = $_REQUEST['price'];
 
-
             for ($i = 0; $i < count($names); $i++) {
                 $product = \App\Repository\ProductRepository::getProductById($ids[$i]);
                 $product = $product[0];
