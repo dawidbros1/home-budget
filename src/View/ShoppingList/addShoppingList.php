@@ -42,7 +42,7 @@
         var ids = <?php echo json_encode($ids) ?>;
     </script>
 
-    <div id="summary" class="text-right"> <span id="cost">0 </span> zł</div>
+    <div id="summary" class="text-right"> Cena: <span id="cost">0 </span> zł</div>
 
 </form>
 

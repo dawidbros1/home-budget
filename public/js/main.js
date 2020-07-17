@@ -7,10 +7,10 @@ function costUpdate() {
     var shoppinglistCost = 0;
 
     shopListItems.forEach(element => {
-        shoppinglistCost += Math.round((element.price * element.amount - element.discount) * 100) / 100;
+        shoppinglistCost = shoppinglistCost + element.price * element.amount - element.discount;
     });
 
-    cost.innerHTML = shoppinglistCost;
+    cost.innerHTML = Math.round(shoppinglistCost * 100) / 100;
 }
 
 class shopList {
