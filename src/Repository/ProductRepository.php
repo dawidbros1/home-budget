@@ -62,7 +62,7 @@ class ProductRepository extends \App\Model\Model
         global $currentUser;
 
         $db = self::getConnection();
-        $sql = "SELECT * FROM products WHERE user_id = :user_id";
+        $sql = "SELECT * FROM products WHERE user_id = :user_id ORDER BY name ASC";
         $statement = $db->prepare($sql);
         $statement->bindValue(':user_id', $currentUser->getId(), \PDO::PARAM_INT);
         $statement->execute();

@@ -42,6 +42,8 @@
         var ids = <?php echo json_encode($ids) ?>;
     </script>
 
+    <div id="summary" class="text-right"> <span id="cost">0 </span> zł</div>
+
 </form>
 
 <?php $_SESSION['js'] =  ["main"]; ?>

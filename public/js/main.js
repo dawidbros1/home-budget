@@ -1,5 +1,17 @@
 var button = document.getElementById('addPosition');
+var cost = document.getElementById('cost');
 var counter = 0;
+
+function costUpdate() {
+
+    var shoppinglistCost = 0;
+
+    shopListItems.forEach(element => {
+        shoppinglistCost += Math.round((element.price * element.amount - element.discount) * 100) / 100;
+    });
+
+    cost.innerHTML = shoppinglistCost;
+}
 
 class shopList {
     constructor(id, price, amount, discount) {
@@ -51,6 +63,8 @@ button.addEventListener('click', function () {
     html += '</div>';
     shoppinglist.innerHTML = html;
 
+
+
     item = new shopList(-1, 0, 1, 0);
     shopListItems.push(item);
     box = document.getElementsByClassName('selectBox');
@@ -70,6 +84,9 @@ button.addEventListener('click', function () {
                         shopListItems[i].price = prices[j];
                     }
                 }
+
+                costUpdate();
+
             }, false);
         })(i);
     }
@@ -91,14 +108,17 @@ function initNewPosition() {
         (function (i) {
             price[i].addEventListener('change', function (event) {
                 shopListItems[i].price = price[i].value;
+                costUpdate();
             }, false);
 
             amount[i].addEventListener('change', function (event) {
                 shopListItems[i].amount = amount[i].value;
+                costUpdate();
             }, false);
 
             discount[i].addEventListener('change', function (event) {
                 shopListItems[i].discount = discount[i].value;
+                costUpdate();
             }, false);
         })(i);
     }
