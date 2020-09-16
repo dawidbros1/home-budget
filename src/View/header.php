@@ -68,6 +68,7 @@
                                 </li>
 
                                 <li class="nav-item"><a class="nav-link" href="index.php?action=summary">Podsumowanie</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.php?action=fullSummary">Pełne podsumowanie</a></li>
                                 <li class="nav-item"><a class="nav-link" href="index.php?action=logout">Wyloguj</a></li>
                             ';
                             } else {

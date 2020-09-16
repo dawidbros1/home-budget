@@ -91,6 +91,11 @@ if (isset($_REQUEST['action'])) {
                 break;
             }
 
+        case 'fullSummary': {
+                require_once __DIR__ . './../src/view/Summary/fullSummary.php';
+                break;
+            }
+
             // ==== Podstawa ==== //
 
         case 'start': {

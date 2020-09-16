@@ -4,7 +4,7 @@ namespace App\Repository;
 
 class ProductRepository extends \App\Model\Model
 {
-    public function createObjectByData($data)
+    public static function createObjectByData($data)
     {
 
         if ($data == NULL) {
@@ -26,7 +26,7 @@ class ProductRepository extends \App\Model\Model
         return $products;
     }
 
-    public function getProductById($id)
+    public static function getProductById($id)
     {
         global $currentUser;
 
@@ -41,7 +41,7 @@ class ProductRepository extends \App\Model\Model
         return $product;
     }
 
-    public function checkIfIsThereProductById($id)
+    public static function checkIfIsThereProductById($id)
     {
         $db = self::getConnection();
         $sql = "SELECT * FROM products WHERE id = :id";
@@ -57,7 +57,7 @@ class ProductRepository extends \App\Model\Model
         }
     }
 
-    public function getAllProductsForCurrentUser()
+    public static function getAllProductsForCurrentUser()
     {
         global $currentUser;
 
@@ -76,7 +76,7 @@ class ProductRepository extends \App\Model\Model
         }
     }
 
-    public function getAllProductsByCategoryId($category_id)
+    public static function getAllProductsByCategoryId($category_id)
     {
         global $currentUser;
 
@@ -96,7 +96,7 @@ class ProductRepository extends \App\Model\Model
     }
 
 
-    public function save($product)
+    public static function save($product)
     {
         $db = self::getConnection();
 

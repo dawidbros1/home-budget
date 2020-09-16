@@ -4,7 +4,7 @@ namespace App\Repository;
 
 class CategoryRepository extends \App\Model\Model
 {
-    public function createObjectByData($data)
+    public static function createObjectByData($data)
     {
 
         if ($data == NULL) {
@@ -24,7 +24,7 @@ class CategoryRepository extends \App\Model\Model
         return $categories;
     }
 
-    public function getCategoryById($id)
+    public static function getCategoryById($id)
     {
         global $currentUser;
 
@@ -39,7 +39,7 @@ class CategoryRepository extends \App\Model\Model
         return $category;
     }
 
-    public function checkIfIsThereCategoryById($id)
+    public static function checkIfIsThereCategoryById($id)
     {
         $db = self::getConnection();
         $sql = "SELECT * FROM categories WHERE id = :id";
@@ -55,7 +55,7 @@ class CategoryRepository extends \App\Model\Model
         }
     }
 
-    public function getAllCategoriesForCurrentUser()
+    public static function getAllCategoriesForCurrentUser()
     {
         global $currentUser;
 
@@ -69,7 +69,7 @@ class CategoryRepository extends \App\Model\Model
         return $categories;
     }
 
-    public function save($category)
+    public static function save($category)
     {
         $db = self::getConnection();
 

@@ -1,21 +1,21 @@
 <?php $_SESSION['title'] = "Lista produktów"; ?>
-
 <?php require_once __DIR__ . './../header.php'; ?>
 
-<h1>Lista produktów</h1>
+<div class="px-4 py-3">
+    <h1>Lista produktów</h1>
 
-<?php showCustomSessionValue('category:info', 'green', '28', 'center') ?>
+    <?php showCustomSessionValue('category:info', 'green', '28', 'center') ?>
 
-<?php
-$products = \App\Repository\ProductRepository::getAllProductsForCurrentUser();
+    <?php
+    $products = \App\Repository\ProductRepository::getAllProductsForCurrentUser();
 
-if ($products) {
-    $categories = \App\Repository\CategoryRepository::getAllCategoriesForCurrentUser();
-    echo '<form class="px-4 py-3 col-md-12" action="./index.php?action=editProduct" method="post">';
-    echo '<div class = "flex">';
+    if ($products) {
+        $categories = \App\Repository\CategoryRepository::getAllCategoriesForCurrentUser();
+        echo '<form col-md-12" action="./index.php?action=editProduct" method="post">';
+        echo '<div class = "flex">';
 
-    foreach ($products as $product) {
-        echo '
+        foreach ($products as $product) {
+            echo '
             <div class="form-group col-md-5">
                 <label for="exampleInputEmail1">Nazwa produktu</label>
                 <input type="text" class="form-control editProductName" name="name[]" value = "' . $product->getName() . '">
@@ -26,9 +26,9 @@ if ($products) {
             <label>Kategoria</label>
             <select class="form-control editOptions" name="category_id[]">';
 
-        echo getOptions($product->getCategory_id());
+            echo getOptions($product->getCategory_id());
 
-        echo '</select>
+            echo '</select>
             </div>
 
             <div class="form-group col-md-2">
@@ -38,19 +38,19 @@ if ($products) {
 
             <input class = "edited" type = "hidden" name = "edited[]" value = "0">
         ';
+        }
+
+        echo '</div>';
+        echo ' <button type="button" class="btn btn-primary" id = "editProductListButton">Edytuj produkty</button>';
+        echo '</form>';
     }
 
-    echo '</div>';
-    echo ' <button type="button" class="btn btn-primary" id = "editProductListButton">Edytuj produkty</button>';
-    echo '</form>';
-}
+    ?>
 
-?>
-
-<form action="./index.php?action=editProduct" method="post" id="jsForm" style="display:none">
-    <input type="submit" style="display: none" id="formButton">
-</form>
-
+    <form action="./index.php?action=editProduct" method="post" id="jsForm" style="display:none">
+        <input type="submit" style="display: none" id="formButton">
+    </form>
+</div>
 <?php
 
 function select($product_category_id, $category_id)

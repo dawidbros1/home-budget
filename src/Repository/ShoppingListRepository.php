@@ -4,7 +4,7 @@ namespace App\Repository;
 
 class ShoppingListRepository extends \App\Model\Model
 {
-    public function createObjectByData($data)
+    public static function createObjectByData($data)
     {
 
         if ($data == NULL) {
@@ -29,7 +29,7 @@ class ShoppingListRepository extends \App\Model\Model
         return $shoppingLists;
     }
 
-    public function getShoppingListById($id)
+    public static function getShoppingListById($id)
     {
         global $currentUser;
 
@@ -44,7 +44,7 @@ class ShoppingListRepository extends \App\Model\Model
         return $shoppingList;
     }
 
-    public function deleteShoppingListById($id)
+    public static function deleteShoppingListById($id)
     {
         $db = self::getConnection();
         $sql = 'DELETE FROM shopping_list WHERE id = :id';
@@ -53,7 +53,7 @@ class ShoppingListRepository extends \App\Model\Model
         $statement->execute();
     }
 
-    public function checkIfItIsMyShoppingList($id)
+    public static function checkIfItIsMyShoppingList($id)
     {
         global $currentUser;
 
@@ -72,7 +72,7 @@ class ShoppingListRepository extends \App\Model\Model
         }
     }
 
-    public function checkIfIsThereShoppingListById($id)
+    public static function checkIfIsThereShoppingListById($id)
     {
         $db = self::getConnection();
         $sql = "SELECT * FROM shopping_list WHERE id = :id";
@@ -88,7 +88,7 @@ class ShoppingListRepository extends \App\Model\Model
         }
     }
 
-    public function getAllShoppingListForCurrentUser()
+    public static function getAllShoppingListForCurrentUser()
     {
         global $currentUser;
 
@@ -107,7 +107,7 @@ class ShoppingListRepository extends \App\Model\Model
         }
     }
 
-    public function getAllShoppingListByProductId($product_id)
+    public static function getAllShoppingListByProductId($product_id)
     {
         $db = self::getConnection();
         $sql = "SELECT * FROM shopping_list WHERE product_id = :product_id";
@@ -124,7 +124,7 @@ class ShoppingListRepository extends \App\Model\Model
         }
     }
 
-    public function getMinDate()
+    public static function getMinDate()
     {
         $db = self::getConnection();
         $sql = "SELECT date FROM shopping_list";
@@ -152,7 +152,7 @@ class ShoppingListRepository extends \App\Model\Model
         }
     }
 
-    public function getAllShoppingListByProductIdWithDate($product_id, $year, $month)
+    public static function getAllShoppingListByProductIdWithDate($product_id, $year, $month)
     {
         $db = self::getConnection();
         $sql = "SELECT * FROM shopping_list WHERE product_id = :product_id";
@@ -182,7 +182,7 @@ class ShoppingListRepository extends \App\Model\Model
         }
     }
 
-    public function getAllShoppingListForCurrentUserWithFullDate($date)
+    public static function getAllShoppingListForCurrentUserWithFullDate($date)
     {
         global $currentUser;
         $db = self::getConnection();
@@ -202,7 +202,7 @@ class ShoppingListRepository extends \App\Model\Model
         }
     }
 
-    public function save($shoppingList)
+    public static function save($shoppingList)
     {
         $db = self::getConnection();
 

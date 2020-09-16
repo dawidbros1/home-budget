@@ -9,7 +9,7 @@ class UserRepository extends Model
 {
     // START GETTERS
 
-    public function checkIfUserIsLoggedIn()
+    public static function checkIfUserIsLoggedIn()
     {
         if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
             return true;
@@ -18,7 +18,7 @@ class UserRepository extends Model
         }
     }
 
-    public function checkRole($role)
+    public static function checkRole($role)
     {
         if (self::checkIfUserIsLoggedIn()) {
             global $currentUser;
@@ -62,7 +62,7 @@ class UserRepository extends Model
     }
 
 
-    public function getUserByIdEmail($email)
+    public static function getUserByIdEmail($email)
     {
         $db = self::getConnection();
         $sql = "SELECT * FROM users WHERE email = :email";
@@ -74,7 +74,7 @@ class UserRepository extends Model
         return $user[0]->getId();
     }
 
-    public function getCurrentUser()
+    public static function getCurrentUser()
     {
         $db = self::getConnection();
         $sql = "SELECT * FROM users WHERE id = :id";
@@ -98,7 +98,7 @@ class UserRepository extends Model
 
     // END GETTERS
 
-    public function createUsersByData($data)
+    public static function createUsersByData($data)
     {
 
         if ($data == NULL) {
@@ -119,7 +119,7 @@ class UserRepository extends Model
         return $users;
     }
 
-    public function checkUniqueEmail($email)
+    public static function checkUniqueEmail($email)
     {
         $db = self::getConnection();
 
@@ -132,7 +132,7 @@ class UserRepository extends Model
         else return false;
     }
 
-    public function checkIfExistsEmail($email)
+    public static function checkIfExistsEmail($email)
     {
         $db = self::getConnection();
 
@@ -145,7 +145,7 @@ class UserRepository extends Model
         else return false;
     }
 
-    public function save($user)
+    public static function save($user)
     {
         $db = self::getConnection();
 
