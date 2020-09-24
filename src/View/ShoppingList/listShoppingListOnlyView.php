@@ -5,7 +5,6 @@
 <div class="px-4 py-3">
     <h1>Lista zakupów</h1>
 
-    <div class='px-4 py-3'>
         <table class="table">
             <thead>
                 <tr>
@@ -19,7 +18,6 @@
 
             </tbody>
         </table>
-    </div>
 
     <?php $today = date_format(new DateTime(), 'Y-m-d'); ?>
     <input type="date" id="date" value="<?php echo $today ?>">
