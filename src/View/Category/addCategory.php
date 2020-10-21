@@ -4,7 +4,7 @@
 <div class="px-4 py-3">
     <h1>Dodaj kategorię</h1>
 
-    <?php showCustomSessionValue('category:info', 'green', '28', 'center') ?>
+    <?php showSessionActionValueWithColor('category:info', 'green') ?>
 
     <form action="./index.php?action=addCategory" method="post">
 

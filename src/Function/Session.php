@@ -18,12 +18,12 @@ function showErrorSessionValue($sessionName)
     }
 }
 
-function showCustomSessionValue($sessionName, $color, $fontSize, $align)
+function showSessionActionValueWithColor($sessionName, $color)
 {
     if (isset($_SESSION[$sessionName])) {
 
         $html = '
-            <div style = "color: ' . $color . '; text-align: ' . $align . '; font-size: ' . $fontSize . 'px;">  
+            <div style = "color: ' . $color . '; text-align: center;" class = "feedback-size">  
                 <p>
                     ' . $_SESSION[$sessionName] . '
                 </p>

@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
             <a class="navbar-brand" href="./index.php?action=start">Start</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,7 +69,19 @@
 
                                 <li class="nav-item"><a class="nav-link" href="index.php?action=summary">Podsumowanie</a></li>
                                 <li class="nav-item"><a class="nav-link" href="index.php?action=fullSummary">Pełne podsumowanie</a></li>
-                                <li class="nav-item"><a class="nav-link" href="index.php?action=logout">Wyloguj</a></li>
+                               
+
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Profil
+                                </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="./index.php?action=changePassword">Zmień hasło</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="index.php?action=logout">Wyloguj</a>
+                                    </div>
+                                </li>  
+
                             ';
                             } else {
                                 echo '<li class="nav-item"><a class="nav-link" href="index.php?action=register">Rejestracja</a></li>';
@@ -85,3 +97,5 @@
                 </ul>
             </div>
         </nav>
+
+        <div class="all">

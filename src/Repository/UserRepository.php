@@ -7,8 +7,6 @@ use App\Model\User;
 
 class UserRepository extends Model
 {
-    // START GETTERS
-
     public static function checkIfUserIsLoggedIn()
     {
         if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
@@ -16,21 +14,6 @@ class UserRepository extends Model
         } else {
             return false;
         }
-    }
-
-    public static function checkRole($role)
-    {
-        if (self::checkIfUserIsLoggedIn()) {
-            global $currentUser;
-
-            if ($currentUser) {
-                if ($currentUser->getRole() == $role) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
     }
 
     public static function findOneByEmailAndPassword($email, $password)
@@ -61,6 +44,19 @@ class UserRepository extends Model
         return $user;
     }
 
+
+    public static function getUserByEmail($email)
+    {
+        $db = self::getConnection();
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $statement = $db->prepare($sql);
+        $statement->bindValue(':email', $email, \PDO::PARAM_STR);
+        $statement->execute();
+        $result = $statement->fetchAll();
+
+        $user = self::createUsersByData($result);
+        return $user[0];
+    }
 
     public static function getUserByIdEmail($email)
     {
@@ -95,8 +91,6 @@ class UserRepository extends Model
 
         return $user;
     }
-
-    // END GETTERS
 
     public static function createUsersByData($data)
     {

@@ -4,61 +4,106 @@
 }
 
 body{
-    background-color: lightgoldenrodyellow;
+  height: 100%;
 }
 
-
-div.container{
-    background-color: white;
-    padding: 0;
+div.container-fluid{
+  background-color: rgb(252, 252, 252);
+  padding: 0;
+  height: 100vh;
 }
-  
-  h1{
-    text-align: center;
-  }
-  
-  .red{
-    color: red;
-  }
-  
-  .none{
-    display: none;
-  }
-  
-  .item{
-    display: block; 
-  }
-  
-  .error{
-    color: red;
-    margin-top: -15px;
-    font-size: 14px;
-  }
-  
-  .green{
-    color: green;
-  }
-  
-  .bold{
-    font-weight: bold;
-  }
 
-  .relative{
-    position: relative;
-  }
-  
-  .flex{
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .container{
-    position: relative;
-  }
+ 
+h1{
+text-align: center;
+}
 
-  hr {
-    width: 100%; 
-    color: black; 
-    height: 1px; 
-    background-color:black;
+.red{
+color: red;
+}
+
+.none{
+display: none;
+}
+
+.item{
+display: block; 
+}
+
+.error{
+color: red;
+margin-top: -15px;
+font-size: 14px;
+}
+
+.green{
+color: green;
+}
+
+.bold{
+font-weight: bold;
+}
+
+.relative{
+position: relative;
+}
+
+.flex{
+display: flex;
+flex-wrap: wrap;
+}
+
+hr {
+width: 100%; 
+color: black; 
+height: 1px; 
+background-color:black;
+}
+
+footer a {
+  color: white;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.feedback-size {
+  font-size: 18px;
+} 
+
+@media screen and (min-width: 500px) {
+  .feedback-size {
+    font-size: 22px;  
+  } 
+}
+
+ @media screen and (min-width: 768px) {
+  .feedback-size {
+    font-size: 25px;
   }
+} 
+
+@media screen and (min-width: 992px) {
+  .feedback-size {
+    font-size: 30px;
+  }
+} 
+
+@media screen and (min-width: 1200px) {
+  .feedback-size {
+    font-size: 35px;
+  }
+} 
+
+.all{
+  margin-bottom: 50px;
+  box-sizing: border-box;
+} 

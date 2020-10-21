@@ -50,7 +50,7 @@ button.addEventListener('click', function () {
     html += '</div >';
     html += '<div class="form-group col-md-2">';
     html += '<label>Cena</label>';
-    html += '<input type="number" step="0.001" class="form-control price" name="price[]" value = "0">';
+    html += '<input type="number" step="0.01" class="form-control price" name="price[]" value = "0">';
     html += '</div>';
     html += '<div class="form-group col-md-2">';
     html += '<label>Ilośc</label>';
@@ -58,7 +58,7 @@ button.addEventListener('click', function () {
     html += '</div>';
     html += '<div class="form-group col-md-2">';
     html += '<label>Rabat</label>';
-    html += '<input type="number" step="0.001" class="form-control discount" name="discount[]" value = "0">';
+    html += '<input type="number" step="0.01" class="form-control discount" name="discount[]" value = "0">';
     html += '</div>';
     html += '</div>';
     shoppinglist.innerHTML = html;

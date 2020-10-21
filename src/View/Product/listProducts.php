@@ -4,7 +4,7 @@
 <div class="px-4 py-3">
     <h1>Lista produktów</h1>
 
-    <?php showCustomSessionValue('category:info', 'green', '28', 'center') ?>
+    <?php showSessionActionValueWithColor('category:info', 'green') ?>
 
     <?php
     $products = \App\Repository\ProductRepository::getAllProductsForCurrentUser();

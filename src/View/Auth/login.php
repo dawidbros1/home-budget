@@ -2,11 +2,13 @@
 <?php require_once __DIR__ . '/../header.php'; ?>
 
 <div class="px-4 py-3">
+
     <h1>Logowanie</h1>
 
-    <?php showCustomSessionValue('register:new:account:info', 'green', '28', 'center') ?>
+    <?php showSessionActionValueWithColor('register:new:account:info', 'green') ?>
 
     <form action="./index.php?action=login" method="post">
+
 
         <div class="form-group">
             <label for="exampleDropdownFormEmail1">Adres e-mail</label>
@@ -30,6 +32,5 @@
     <a class="dropdown-item" href="index.php?action=register">Jesteś tu nowy? <span class="green bold">Załóż konto</span></a>
     <a class="dropdown-item" href="index.php?action=forgotPassword">Zapomniałeś hasła?</a>
 </div>
-
 
 <?php require_once __DIR__ . '/../footer.php'; ?>
