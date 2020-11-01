@@ -51,14 +51,18 @@ $_SESSION['title'] = "Podsumowanie"; ?>
                                 isset($_REQUEST['year']) && !empty($_REQUEST['year']) &&
                                 isset($_REQUEST['month']) && !empty($_REQUEST['month'])
                             ) {
-                                $shopList = \App\Repository\ShoppingListRepository::getAllShoppingListByProductIdWithDate($product->getId(), $_REQUEST['year'], $_REQUEST['month']);
-                            } else {
-                                // $shopList = \App\Repository\ShoppingListRepository::getAllShoppingListByProductId($product->getId());
+                                $minDate = $_REQUEST['year'] . '-' . $_REQUEST['month'] . '-01';
+                                $maxDate = $_REQUEST['year'] . '-' . $_REQUEST['month'] . '-31';
 
+                                $shopList = \App\Repository\ShoppingListRepository::getAllShoppingListByProductIdWithDate($product->getId(), $minDate, $maxDate);
+                            } else {
                                 $month = date('m');
                                 $year = date("Y");
 
-                                $shopList = \App\Repository\ShoppingListRepository::getAllShoppingListByProductIdWithDate($product->getId(), $year, $month);
+                                $minDate = $year . '-' . $month . '-01';
+                                $maxDate = $year . '-' . $month . '-31';
+
+                                $shopList = \App\Repository\ShoppingListRepository::getAllShoppingListByProductIdWithDate($product->getId(), $minDate, $maxDate);
                             }
 
                             if ($shopList) {

@@ -152,31 +152,20 @@ class ShoppingListRepository extends \App\Model\Model
         }
     }
 
-    public static function getAllShoppingListByProductIdWithDate($product_id, $year, $month)
+    public static function getAllShoppingListByProductIdWithDate($product_id, $minDate, $maxDate)
     {
         $db = self::getConnection();
-        $sql = "SELECT * FROM shopping_list WHERE product_id = :product_id";
+        $sql = "SELECT * FROM shopping_list WHERE date BETWEEN :minDate AND :maxDate AND product_id = :product_id";
         $statement = $db->prepare($sql);
         $statement->bindValue(':product_id', $product_id, \PDO::PARAM_INT);
+        $statement->bindValue(':minDate', $minDate, \PDO::PARAM_STR);
+        $statement->bindValue(':maxDate', $maxDate, \PDO::PARAM_STR);
         $statement->execute();
         $result = $statement->fetchAll();
 
-        $array = [];
-
         if ($result) {
             $products = self::createObjectByData($result);
-
-            foreach ($products as $product) {
-                $date = date_create($product->getDate());
-                $pYear = date_format($date, 'Y');
-                $pMonth = date_format($date, 'm');
-
-                if ($pYear == $year && $pMonth == $month) {
-                    array_push($array, $product);
-                }
-            }
-
-            return $array;
+            return $products;
         } else {
             return false;
         }
